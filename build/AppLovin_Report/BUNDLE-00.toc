@@ -1,3 +1,0 @@
-([('AppLovin_Report',
-   '/Users/apple/Desktop/abc/dist/AppLovin_Report',
-   'EXECUTABLE')],)
