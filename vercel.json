@@ -10,7 +10,9 @@
         "src": "build.sh",
         "use": "@vercel/python",
         "config": {
-          "distDir": "staticfiles_build"
+           
+            "maxDuration": 60,
+            "distDir": "staticfiles_build"
         }
       }
     ],
