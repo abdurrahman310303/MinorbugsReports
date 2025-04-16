@@ -29,6 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
+
+#changes of feature2
 # Application definition
 
 INSTALLED_APPS = [
