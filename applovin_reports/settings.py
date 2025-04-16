@@ -30,7 +30,7 @@ ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
 
-#changes of feature2
+#changes of feature2 || changes in feature2 second time 
 # Application definition
 
 INSTALLED_APPS = [
@@ -128,7 +128,3 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build','static')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-#checkout of feature1 and...?
