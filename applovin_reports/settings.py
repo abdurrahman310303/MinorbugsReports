@@ -129,4 +129,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-#checkout of feature1 and...?
+#checkout of feature1 and...? || feature 1 changes second time.
