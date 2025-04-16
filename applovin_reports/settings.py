@@ -139,5 +139,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # gdsf
 # globalsdfs
 # globalsg
-# sdf
+# sdfxyzc  afa
 # globalssf
