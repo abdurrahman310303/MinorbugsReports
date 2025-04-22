@@ -2,8 +2,10 @@ altgraph
 asgiref
 certifi
 charset-normalizer
-django
+Django
 gunicorn
+pandas
+requests
 idna
 macholib
 numpy

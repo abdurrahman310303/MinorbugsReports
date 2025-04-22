@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os  # Add this import
 from report_dashboard.views import report_view
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,11 +26,25 @@ SECRET_KEY = 'django-insecure-5@j%1#am%#@djq5_y0x6+7x32t$f69s%-(tj)d47n40f)@8y+8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Add these settings for production
-ALLOWED_HOSTS = ['18.188.132.108']
+ALLOWED_HOSTS = ['18.188.132.108', 'localhost', '127.0.0.1', '172.31.11.59']
 DEBUG = False
 
+# Security settings for production
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
 # Static files configuration
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 
 # Application definition
