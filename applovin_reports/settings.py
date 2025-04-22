@@ -24,13 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5@j%1#am%#@djq5_y0x6+7x32t$f69s%-(tj)d47n40f)@8y+8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Add these settings for production
+ALLOWED_HOSTS = ['18.188.132.108']
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app','.now.sh']
+# Static files configuration
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-
-#changes of feature2 || changes in feature2 second time 
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +44,25 @@ INSTALLED_APPS = [
     'report_dashboard',
 ]
 
+# Add Applovin API Key
+APPLOVIN_API_KEY = "veXCVvRUzwWHzmcXlSCUOHaxEvlhCk26MaJsUlLSetkccK9MoLsBcQ6sJsXWZadw9xndg64Kzpxa84ywQo61DD"
+
+# Cache settings
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+        'TIMEOUT': 300,  # 5 minutes default timeout
+        'OPTIONS': {
+            'MAX_ENTRIES': 1000,
+            'CULL_FREQUENCY': 3,
+        }
+    }
+}
+
+# Cache middleware settings
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',  # Add this at the start
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',  # Add this at the end
 ]
 
 ROOT_URLCONF = 'applovin_reports.urls'
@@ -120,22 +140,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-import os
-
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static')
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build','static')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-# fgsdfsdfgsdf
-# gsdfg
-# sdf
-# gdsf
-# globalsdfs
-# globalsg
-# sdfxyzc  afa
-# globalssf

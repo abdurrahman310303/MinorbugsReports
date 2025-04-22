@@ -1,0 +1,13 @@
+[Unit]
+Description=Django Application
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/abc
+ExecStart=/home/ubuntu/env/bin/gunicorn --config gunicorn_config.py applovin_reports.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

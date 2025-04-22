@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: gunicorn applovin_reports.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=0
+      - DJANGO_ALLOWED_HOSTS=18.188.132.108,localhost,127.0.0.1
+
+volumes:
+  static_volume:
